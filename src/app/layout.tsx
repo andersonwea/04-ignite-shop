@@ -2,15 +2,10 @@ import { ReactNode } from 'react'
 import './globals.css'
 import { Roboto } from 'next/font/google'
 
-const roboto400 = Roboto({
+const roboto = Roboto({
   subsets: ['latin'],
-  weight: '400',
-  variable: '--font-roboto-400',
-})
-const roboto700 = Roboto({
-  subsets: ['latin'],
-  weight: '700',
-  variable: '--font-roboto-700',
+  weight: ['400', '700'],
+  variable: '--font-roboto',
 })
 
 export const metadata = {
@@ -21,7 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${roboto400.variable} ${roboto700.variable}`}>
+      <body
+        className={`${roboto.variable} bg-gray-900 font-sans text-gray-100`}
+      >
         {children}
       </body>
     </html>
