@@ -1,6 +1,8 @@
 import { ReactNode } from 'react'
 import './globals.css'
 import { Roboto } from 'next/font/google'
+import igniteLogo from '../assets/logo.svg'
+import Image from 'next/image'
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -19,7 +21,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`${roboto.variable} bg-gray-900 font-sans text-gray-100`}
       >
-        {children}
+        <div className="flex min-h-screen flex-col items-center justify-center">
+          <header className="mx-auto w-full max-w-[1180px] py-8">
+            <Image src={igniteLogo} alt="" />
+          </header>
+
+          {children}
+        </div>
       </body>
     </html>
   )
