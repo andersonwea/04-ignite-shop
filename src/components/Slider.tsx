@@ -11,7 +11,7 @@ type Products = {
   id: string
   name: string
   imageUrl: string
-  price: number
+  price: string
 }
 
 interface SliderProps {
@@ -45,7 +45,7 @@ export function Slider({ products }: SliderProps) {
                 {product.name}
               </strong>
               <span className="text-2xl font-bold text-green-300">
-                R$ {product.price}
+                {product.price}
               </span>
             </footer>
           </Link>
