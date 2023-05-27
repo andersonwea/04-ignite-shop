@@ -26,6 +26,10 @@ module.exports = {
           500: '#00B37E',
         },
       },
+
+      backgroundImage: {
+        tshirt: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],
