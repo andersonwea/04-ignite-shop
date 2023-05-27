@@ -2,6 +2,8 @@ import { stripe } from '@/lib/stripe'
 import { Slider } from '../components/Slider'
 import Stripe from 'stripe'
 
+export const revalidate = 60
+
 export default async function Home() {
   const response = await stripe.products.list({
     expand: ['data.default_price'],

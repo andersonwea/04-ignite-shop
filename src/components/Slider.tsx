@@ -4,10 +4,6 @@ import { useKeenSlider } from 'keen-slider/react'
 
 import 'keen-slider/keen-slider.min.css'
 
-import tshirt1 from '../assets/1.png'
-import tshirt2 from '../assets/2.png'
-import tshirt3 from '../assets/3.png'
-import tshirt4 from '../assets/4.png'
 import Link from 'next/link'
 import Image from 'next/image'
 
