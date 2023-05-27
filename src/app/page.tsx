@@ -7,6 +7,7 @@ import { useKeenSlider } from 'keen-slider/react'
 import tshirt1 from '../assets/1.png'
 import tshirt2 from '../assets/2.png'
 import tshirt3 from '../assets/3.png'
+import tshirt4 from '../assets/4.png'
 
 import 'keen-slider/keen-slider.min.css'
 
@@ -63,7 +64,7 @@ export default function Home() {
         href={'/product/:id'}
         className="keen-slider__slide group relative flex items-center justify-center overflow-hidden rounded-lg bg-tshirt p-1"
       >
-        <Image src={tshirt3} width={520} height={480} alt="" />
+        <Image src={tshirt4} width={520} height={480} alt="" />
 
         <footer className=" absolute bottom-1 left-1 right-1 flex translate-y-28 items-center justify-between rounded-md bg-black/60 p-8 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
           <strong className="text-xl leading-relaxed">Camiseta 1</strong>
