@@ -35,7 +35,7 @@ export function Slider({ products }: SliderProps) {
         return (
           <Link
             key={product.id}
-            href={'/product/:id'}
+            href={`/product/${product.id}`}
             className="keen-slider__slide group relative flex items-center justify-center overflow-hidden rounded-lg bg-tshirt p-1 "
           >
             <Image src={product.imageUrl} width={520} height={480} alt="" />
