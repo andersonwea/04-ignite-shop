@@ -35,6 +35,7 @@ export function Slider({ products }: SliderProps) {
         return (
           <Link
             key={product.id}
+            prefetch={false}
             href={`/product/${product.id}`}
             className="keen-slider__slide group relative flex items-center justify-center overflow-hidden rounded-lg bg-tshirt p-1 "
           >
