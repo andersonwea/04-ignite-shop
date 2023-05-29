@@ -2,6 +2,8 @@ import { stripe } from '@/lib/stripe'
 import Image from 'next/image'
 import Stripe from 'stripe'
 
+export const revalidate = 60
+
 export async function generateStaticParams() {
   const products = await stripe.products.list()
 
