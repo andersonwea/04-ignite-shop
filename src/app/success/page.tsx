@@ -1,6 +1,7 @@
 import { stripe } from '@/lib/stripe'
 import Image from 'next/image'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import Stripe from 'stripe'
 
 export default async function Success({
@@ -9,6 +10,10 @@ export default async function Success({
   searchParams: { session_id: string }
 }) {
   const sessionId = searchParams.session_id
+
+  if (!sessionId) {
+    redirect(process.env.NEXT_PUBLIC_APP_URL as string)
+  }
 
   const session = await stripe.checkout.sessions.retrieve(sessionId, {
     expand: ['line_items', 'line_items.data.price.product'],
