@@ -1,3 +1,4 @@
+import { BuyButton } from '@/components/BuyButton'
 import { stripe } from '@/lib/stripe'
 import Image from 'next/image'
 import Stripe from 'stripe'
@@ -29,6 +30,7 @@ export default async function Product({ params }: { params: { id: string } }) {
       currency: 'BRL',
     }).format((price.unit_amount as number) / 100),
     description: response.description,
+    defaultPriceId: price.id,
   }
 
   return (
@@ -50,9 +52,7 @@ export default async function Product({ params }: { params: { id: string } }) {
         <p className="mt-10 text-lg leading-relaxed text-gray-300">
           {product.description}
         </p>
-        <button className="mt-auto cursor-pointer rounded-lg border-0 bg-green-500 p-5 text-lg font-bold text-white hover:bg-green-300">
-          Compre agora
-        </button>
+        <BuyButton defaultPriceId={product.defaultPriceId} />
       </div>
     </main>
   )
