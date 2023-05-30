@@ -4,6 +4,10 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import Stripe from 'stripe'
 
+export const metadata = {
+  title: 'Compra efetuada | Ignite Shop',
+}
+
 export default async function Success({
   searchParams,
 }: {

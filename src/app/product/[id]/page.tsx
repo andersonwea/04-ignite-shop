@@ -1,9 +1,26 @@
 import { BuyButton } from '@/components/BuyButton'
 import { stripe } from '@/lib/stripe'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Stripe from 'stripe'
 
-export const revalidate = 60
+interface Props {
+  params: {
+    id: string
+  }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const productId = params.id
+
+  const product = await stripe.products.retrieve(productId)
+
+  return {
+    title: `${product.name} | Ignite Shop`,
+  }
+}
+
+export const revalidate = 60 * 60 * 1 // 1 hour
 
 export async function generateStaticParams() {
   const products = await stripe.products.list()
@@ -13,7 +30,7 @@ export async function generateStaticParams() {
   return productIds
 }
 
-export default async function Product({ params }: { params: { id: string } }) {
+export default async function Product({ params }: Props) {
   const productId = params.id
   const response = await stripe.products.retrieve(productId, {
     expand: ['default_price'],
